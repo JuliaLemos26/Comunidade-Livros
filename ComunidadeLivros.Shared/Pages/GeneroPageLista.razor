@@ -1,0 +1,47 @@
+﻿@page "/genero"
+@inject IGeneroService GeneroService
+
+<PageTitle>Géneros</PageTitle>
+
+<h1>Géneros</h1>
+
+
+
+<p>Listagem de Géneros</p>
+
+
+@if (generos == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Ações</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var genero in generos)
+			{
+				<tr>
+					<td>@genero.Nome</td>
+					<td>
+						<a href="@($"editgenero/{genero.Id}")" class="btn btn-primary m-1">Editar</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+
+@code {
+	private IList<Genero>? generos;
+
+	protected override async Task OnInitializedAsync()
+	{
+		generos = await GeneroService.GetAllGeneros();
+	}
+}
