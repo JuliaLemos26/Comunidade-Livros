@@ -7,5 +7,7 @@ namespace ComunidadeLivros.Shared.Services
         Task<IList<Genero>> GetAllGeneros();
         Task<Genero?> GetGeneroById(Guid id);
         Task UpdateGenero(Genero genero);
+        Task AddGenero(Genero newGenero);
+        Task DeleteGenero(Genero genero);
     }
 }

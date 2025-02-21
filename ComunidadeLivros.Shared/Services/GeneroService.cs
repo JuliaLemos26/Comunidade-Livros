@@ -15,7 +15,7 @@ namespace ComunidadeLivros.Shared.Services
 
         public async Task<IList<Genero>> GetAllGeneros()
         {
-            return await _context.Generos.ToListAsync();
+            return await _context.Generos.OrderBy(x => x.Nome).ToListAsync();
         }
 
         public async Task<Genero?> GetGeneroById(Guid id)
@@ -26,6 +26,18 @@ namespace ComunidadeLivros.Shared.Services
         public async Task UpdateGenero(Genero genero)
         {
             _context.Update(genero);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task AddGenero(Genero genero)
+        {
+            _context.Add(genero);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteGenero(Genero genero)
+        {
+            _context.Remove(genero);
             await _context.SaveChangesAsync();
         }
     }

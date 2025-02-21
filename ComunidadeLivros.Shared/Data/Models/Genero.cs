@@ -1,12 +1,17 @@
-﻿namespace ComunidadeLivros.Shared.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ComunidadeLivros.Shared.Data.Models
 {
     public class Genero
     {
         public Guid Id { get; set; }
-        public required string Nome { get; set; }
 
-        public required List<Livro> Livros { get; set; }
+        [Required]
+        [StringLength(20, MinimumLength = 4)]
+        public string? Nome { get; set; } = null; 
 
-        public required List<Autor> Autores { get; set; }
+        public List<Livro> Livros { get; set; } = new();
+
+        public List<Autor> Autores { get; set; } = new();
     }
 }
