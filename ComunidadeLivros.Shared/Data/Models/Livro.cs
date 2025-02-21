@@ -12,13 +12,13 @@ namespace ComunidadeLivros.Shared.Data.Models
         public string? Sobre { get; set; }
 
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public required Genero Genero { get; set; }
+        public Genero? Genero { get; set; }
 
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public required Autor Autor { get; set; }
+        public Autor? Autor { get; set; }
 
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public required Midia Midia { get; set; }
+        public Midia? Midia { get; set; }
 
     }
 }

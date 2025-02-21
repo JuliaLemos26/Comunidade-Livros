@@ -1,14 +1,19 @@
-﻿namespace ComunidadeLivros.Shared.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ComunidadeLivros.Shared.Data.Models
 {
     public class Midia
     {
         public Guid Id { get; set; }
-        public required string Nome { get; set; }
+
+        [Required]
+        [StringLength(40, MinimumLength = 2)]
+        public string? Nome { get; set; } = null;
 
         public required string MidiaLink { get; set; }
 
-        public required List<Livro> Livros { get; set; }
+        public List<Livro> Livros { get; set; } = new();
 
-        public required List<Autor> Autores { get; set; }
+        public List<Autor> Autores { get; set; } = new();
     }
 }

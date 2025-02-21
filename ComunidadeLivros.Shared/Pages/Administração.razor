@@ -1,0 +1,19 @@
+﻿@page "/administracao"
+@using ComunidadeLivros.Shared.Services
+@inject IFormFactor FormFactor
+
+<PageTitle>Administração</PageTitle>
+
+<h1>Comunidade de Livros</h1> 
+
+<h2>Formulários</h2>
+
+<a href="@($"livro")" class="btn btn-primary m-1">Livros</a>
+<a href="@($"midia")" class="btn btn-primary m-1">Mídia</a>
+<a href="@($"autor")" class="btn btn-primary m-1">Autor</a>
+<a href="@($"genero")" class="btn btn-primary m-1">Gênero</a>
+
+@code {
+    private string factor => FormFactor.GetFormFactor();
+    private string platform => FormFactor.GetPlatform();
+}

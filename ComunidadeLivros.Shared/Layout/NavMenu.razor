@@ -9,12 +9,16 @@
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="flex-column">
         <div class="nav-item px-3">
+            <a href="@($"pesquisar")" class="btn btn-primary m-1">Pesquisar</a>
+        </div>
+        <br />
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Inicio
             </NavLink>
         </div>
 
-        <div class="nav-item px-3">
+        @*<div class="nav-item px-3">
             <NavLink class="nav-link" href="counter">
                 <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
             </NavLink>
@@ -24,11 +28,36 @@
             <NavLink class="nav-link" href="weather">
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
             </NavLink>
-        </div>
+        </div>*@
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="genero">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Generos
+            <NavLink class="nav-link" href="administracao">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Administração
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="fantasia">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Fantasia
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="melancolico">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Melancólico
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="romance">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Romance
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="terror">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Terror
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="suspense">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Suspense
             </NavLink>
         </div>
     </nav>

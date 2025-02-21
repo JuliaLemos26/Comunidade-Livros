@@ -17,6 +17,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Add device-specific services used by the ComunidadeLivros.Shared project
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
 builder.Services.AddScoped<IGeneroService, GeneroService>();
+builder.Services.AddScoped<IMidiaService, MidiaService>();
+builder.Services.AddScoped<IAutorService, AutorService>();
+builder.Services.AddScoped<ILivroService, LivroService>();
 
 var app = builder.Build();
 
