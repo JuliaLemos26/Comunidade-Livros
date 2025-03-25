@@ -27,6 +27,7 @@ namespace ComunidadeLivros
             // Add device-specific services used by the ComunidadeLivros.Shared project
             builder.Services.AddSingleton<IFormFactor, FormFactor>();
             builder.Services.AddScoped<IGeneroService, GeneroService>();
+            builder.Services.AddScoped<IMidiaService, MidiaService>();
 
             builder.Services.AddMauiBlazorWebView();
 

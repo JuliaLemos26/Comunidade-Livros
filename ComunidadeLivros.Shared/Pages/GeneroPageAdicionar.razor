@@ -4,13 +4,15 @@
 
 <a href="/genero" class="btn btn-secondary m-1">Voltar</a>
 
-@if (Genero == null)
+@if (NovoGenero == null)
 {
 	<p><em>Loading...</em></p>
 }
 else
 {
-	<EditForm Model="@Genero">
+	<EditForm Model="@NovoGenero" OnValidSubmit="Save">
+		<DataAnnotationsValidator />
+		<ValidationSummary />
 		<h3>Adicionar Gênero</h3>
 		<hr />
 		<div class="form-group row">
@@ -19,31 +21,35 @@ else
 			</label>
 			<div class="col-sm-10">
 				<InputText id="Nome-Genero" class="form-control" placeholder="Nome-Genero"
-						   @bind-Value="Genero.Nome" />
+						   @bind-Value="NovoGenero.Nome" />
+				<ValidationMessage For="() => NovoGenero.Nome" />
 			</div>
 		</div>
 		<div>
-			<button type="submit" @onclick="Save" class="btn btn-outline-success m-1">Gravar</button>
+			<button type="submit" class="btn btn-outline-success m-1">Gravar</button>
 		</div>
 	</EditForm>
-
-
 }
 
 @code {
+	public Genero? NovoGenero { get; set; } = null;
 
-	public Genero? Genero { get; set; } = null;
-
-	protected async override Task OnInitializedAsync()
+	protected override async Task OnInitializedAsync()
 	{
-		Genero = await GeneroService.GetGeneroById(Guid.Parse(Id));
+		NovoGenero = new Genero()
+			{
+				Id = Guid.NewGuid(),
+				Nome = string.Empty
+			};
+
+		await Task.Delay(5);
 	}
 
 	private void Save()
 	{
-		if (Genero != null)
+		if (NovoGenero != null)
 		{
-			GeneroService.UpdateGenero(Genero);
+			GeneroService.AddGenero(NovoGenero);
 			Navigation.NavigateTo("genero");
 		}
 	}

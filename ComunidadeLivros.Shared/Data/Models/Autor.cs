@@ -8,14 +8,16 @@ namespace ComunidadeLivros.Shared.Data.Models
 
         public required string Nome { get; set; }
 
-        public string? Sobre { get; set; }
+        public required string Sobre { get; set; }
 
-        public required List<Livro> Livros { get; set; }
+        //public required int GeneroId { get; set; }
+
+        public List<Livro>? Livros { get; set; }
 
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public required Genero Genero { get; set; }
+        public Genero? Genero { get; set; }
 
         [DeleteBehavior(DeleteBehavior.Restrict)]
-        public required Midia Midia { get; set; }
+        public Midia? Midia { get; set; }
     }
 }
